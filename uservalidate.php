@@ -13,7 +13,7 @@ if (!$con) {
         $user = mysqli_real_escape_string($con, $user);
 
         // Construct the SQL query to select the user with the provided username
-        $query = "SELECT name, password FROM SIGNUP WHERE name='$user'";
+        $query = "SELECT name,email, password FROM SIGNUP WHERE name='$user'";
 
         // Execute the query
         $result = mysqli_query($con, $query);
@@ -24,10 +24,10 @@ if (!$con) {
             $row = mysqli_fetch_assoc($result);
 
             // Verify the password
-            if (password_verify($password, $row['password'])) {
+            if ($password==$row['password']) {
                 // Password is correct
                 echo "Login Successful";
-                 header('Location: index.php');
+                header('Location: inside/dashboard.php');
             } else {
                 echo "Incorrect password <br> please enter a correct password";
             }
@@ -42,4 +42,3 @@ if (!$con) {
 
 mysqli_close($con);
 ?>
-

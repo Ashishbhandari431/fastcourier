@@ -82,14 +82,14 @@ input{
             <div class="second">
             <form action="uservalidate.php" method="post">
                 <label>Enter username</label><br>
-                <input type="text" name="name" required class="rrr" placeholder="Enter username/email Address"><br>
+                <input type="text" name="name" required class="rrr" placeholder="Enter username/Company name"><br>
                 <label>Password</label><br>
                 <input type="password" name="password" class="rrr" placeholder="Password"><br>
                 <br>
                 <input type="checkbox">Remember me
                 
                 <button>LOGIN</button><br>
-            <a href="fgtpass.html"> <h3>Forget your password?</h3></a>
+            <a href="forget.php"> <h3>Forget your password?</h3></a>
             <hrr>
           
         </form>

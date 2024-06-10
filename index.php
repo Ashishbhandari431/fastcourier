@@ -120,6 +120,8 @@
 <section class="my-5">
 <div class="py-5" id="contact">
   <h3 class="text-center" >Contact us</h3>
+  <h4 class="text-center">Fast Courier and Cargo Services<br>Birtamode, Jhapa<br>Sanischare road Dhanaraj Mini market 2nd floor room no:F127<br>023-534177, 9801376348</h4>
+  <h3 class="text-center" >For more information:-</h3>
   </div>
   <div class="w-50 m-auto">
     <form action="userinfo.php" method="post">
@@ -147,8 +149,8 @@
 </section>
 <footer>
   <p class="p-3 bg-dark text-white text-center">@Fastbtm &emsp;&emsp;&emsp;023-534177&emsp;&emsp;9801376348
-  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="https://www.facebook.com/p/Fast-Courier-And-Cargo-Services-Birtamod-100063864826842/" >Facebook </a>&emsp;&emsp;&emsp;
-  <a href="https://www.facebook.com/sagar.dahal.33">Sagar Dahal</a>
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="https://www.facebook.com/p/Fast-Courier-And-Cargo-Services-Birtamod-100063864826842/" ><img src="image/fbpng.jpg" alt="Fast courier" width="50px" height="50px"> Fast Courier </a>&emsp;&emsp;&emsp;
+  <a href="https://www.facebook.com/sagar.dahal.33" ><img src="image/fbpng.jpg" alt="Sagar Dahal"width="50px" height="50px"> Sagar Dahal </a>
   </p>
 </footer>
 
