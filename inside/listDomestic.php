@@ -23,7 +23,7 @@
     <?php include 'nav.php' ?>
     <table border="3">
         <tr>
-            <td>Cn No</td>
+            <td><center>Cn No</center></td>
             <td>Booking Date</td>
             <td>Sender name</td>
             <td>Sender address</td>
@@ -33,7 +33,7 @@
             <td>Receiver name</td>
             <td>Receiver address</td>
             <td>Receiver Contact</td>
-            <td></td>
+            <td>Remarks</td>
 
 
         </tr>
@@ -58,7 +58,7 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $color = ($row['CN No'] % 2 == 0) ? '#E7E7E7' : '#F7F7F7';
         echo "<tr style='background-color: $color;'>";
-            echo"<td> FAST177 00".$row['CN No']."</td>";
+            echo"<td> FAST177 0".$row['CN No']."</td>";
             echo"<td>".$row['date']."</td>";
             echo"<td>".$row['Sname']."</td>";
             echo"<td>".$row['Saddress']."</td>";
@@ -68,7 +68,8 @@ if (mysqli_num_rows($result) > 0) {
             echo"<td>".$row['Rname']."</td>";
             echo"<td>".$row['Raddress']."</td>";
             echo"<td>".$row['Rnumber']."</td>";
-            echo"<td>Edit</td>";
+            echo "<td><a href='update.php?cn=" . $row['CN No']."&date=".$row['date']. "&sadd=".$row['Saddress']."&price=".$row['price']."&weight=".$row['weight'] ."&pic=". $row['pieces']. "&sn=" . $row['Sname'] . "&sno=" . $row['Snumber'] . "&rn=" . $row['Rname'] . "&rno=" . $row['Rnumber'] . "&radd=" . $row['Raddress'] . "'>Edit</a></td>";
+          
             echo"</tr>";
          }
 } 

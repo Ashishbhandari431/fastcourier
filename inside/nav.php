@@ -8,17 +8,17 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
       <?php
-                                $conn = mysqli_connect("localhost","root","","fastbtm");
-                                if (!$conn) {
-                                    die("Connection failed: " . mysqli_connect_error());
-                                }
-                                $sql = "SELECT `name` FROM signup";
-                                $result = mysqli_query($conn, $sql);
-                                if (mysqli_num_rows($result) > 0) {
-                                    while($row = mysqli_fetch_assoc($result)) {
-                                        $name=$row['name'];
-                                    }
-                                }
+                                // $conn = mysqli_connect("localhost","root","","fastbtm");
+                                // if (!$conn) {
+                                //     die("Connection failed: " . mysqli_connect_error());
+                                // }
+                                // $sql = "SELECT `name` FROM signup";
+                                // $result = mysqli_query($conn, $sql);
+                                // if (mysqli_num_rows($result) > 0) {
+                                //     while($row = mysqli_fetch_assoc($result)) {
+                                //         $name=$row['name'];
+                                //     }
+                                // }
                                 $current_hour = date('G');
 
                               
@@ -40,7 +40,7 @@
                                 }
                                 
                                 // Output the greeting message
-                                echo "<span style='color:white'>$greeting!<br> $name</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                                echo "<span style='color:white'>$greeting!</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                                 ?>
       </li>
       <li class="nav-item active">

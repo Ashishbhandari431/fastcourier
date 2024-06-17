@@ -14,8 +14,11 @@
 <?php include 'menu-nav.php'  ?>
 
 <div class="jumbotron">
-  <h1>Fast Courier & Cargo Services</h1>
+  <center>
+    <h1>Welcome !</h1>
+  <h2>Fast Courier & Cargo Services</h2>
   <p>   </p>
+  </center>
 </div>
 
 <section class="my-5">
@@ -38,8 +41,10 @@
 </section>
 
 <footer>
-  <p class="p-3 bg-dark text-white text-center">@Fastbtm</p>
+  <p class="p-3 bg-dark text-white text-center">@Fastbtm &emsp;&emsp;&emsp;023-534177&emsp;&emsp;9801376348
+  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="https://www.facebook.com/p/Fast-Courier-And-Cargo-Services-Birtamod-100063864826842/" ><img src="image/fbpng.jpg" alt="Fast courier" width="50px" height="50px"> Fast Courier </a>&emsp;&emsp;&emsp;
+  <a href="https://www.facebook.com/sagar.dahal.33" ><img src="image/fbpng.jpg" alt="Sagar Dahal"width="50px" height="50px"> Sagar Dahal </a>
+  </p>
 </footer>
-
 </body>
 </html>

@@ -182,7 +182,7 @@ input{
                 <label>Enter New password</label><br>
                 <input name="password" type="password" class="rrr" placeholder="Enter new password" id="password" required><br>
                 <label>conform your password</label><br>
-                <input name="vpassword" type="password" class="rrr" placeholder="Enter password" id="cinform_password" required><br>
+                <input name="vpassword" type="password" class="rrr" placeholder="Enter password" id="conform_password" required><br>
                     
             <a href="#"><button>Save</button></a>
            
