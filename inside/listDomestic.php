@@ -1,3 +1,43 @@
+<?php
+$conn = mysqli_connect("localhost", "root", "", "fastbtm");
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Initialize variables to store user input
+$searchReceiverName = "";
+$searchSenderName = "";
+$searchBookingDate = "";
+
+// Check if form is submitted and process user input
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize user input to prevent SQL injection
+    $searchReceiverName = mysqli_real_escape_string($conn, $_POST['Rname']);
+    $searchSenderName = mysqli_real_escape_string($conn, $_POST['Sname']);
+    $searchBookingDate = mysqli_real_escape_string($conn, $_POST['Date']);
+}
+
+// Construct the SQL query based on user input
+$sql = "SELECT * FROM domesticinfo WHERE 1 ";
+
+if (!empty($searchReceiverName)) {
+    $sql .= " AND Rname LIKE '%$searchReceiverName%' ";
+}
+
+if (!empty($searchSenderName)) {
+    $sql .= " AND Sname LIKE '%$searchSenderName%' ";
+}
+
+if (!empty($searchBookingDate)) {
+    $sql .= " AND date LIKE '%$searchBookingDate%' ";
+}
+
+// Execute the query
+$result = mysqli_query($conn, $sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +61,23 @@
 </head>
 <body>
     <?php include 'nav.php' ?>
+    <br>
+    <form action="Search.php" method="post">
+        <label>Receiver name</label>
+        <input type="text" name="Rname" value="<?php echo htmlspecialchars($searchReceiverName); ?>">
+        &emsp14;
+        <label>Sender Name:</label>
+        <input type="text" name="Sname" value="<?php echo htmlspecialchars($searchSenderName); ?>">
+        &emsp13;
+        <label>Booking Date:</label>
+        <input type="text" id="btn" name="Date" value="<?php echo htmlspecialchars($searchBookingDate); ?>">
+        &emsp14;
+        <input type="submit" value="Search" class="btn btn-danger">
+    </form>
+    <a href="domestic.php">
+        <button type="button" class="btn btn-primary">Add Docket</button>
+    </a>
+    <br>
     <table border="3">
         <tr>
             <td><center>Cn No</center></td>
@@ -58,7 +115,8 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $color = ($row['CN No'] % 2 == 0) ? '#E7E7E7' : '#F7F7F7';
         echo "<tr style='background-color: $color;'>";
-            echo"<td> FAST177 0".$row['CN No']."</td>";
+            // echo"<td> FAST177 0".$row['CN No']."</td>";
+            echo "<td><a href='pdf.php?cn=" . $row['CN No'] . "'>FAST177 0".$row['CN No']."</a></td>";
             echo"<td>".$row['date']."</td>";
             echo"<td>".$row['Sname']."</td>";
             echo"<td>".$row['Saddress']."</td>";
@@ -68,7 +126,7 @@ if (mysqli_num_rows($result) > 0) {
             echo"<td>".$row['Rname']."</td>";
             echo"<td>".$row['Raddress']."</td>";
             echo"<td>".$row['Rnumber']."</td>";
-            echo "<td><a href='update.php?cn=" . $row['CN No']."&date=".$row['date']. "&sadd=".$row['Saddress']."&price=".$row['price']."&weight=".$row['weight'] ."&pic=". $row['pieces']. "&sn=" . $row['Sname'] . "&sno=" . $row['Snumber'] . "&rn=" . $row['Rname'] . "&rno=" . $row['Rnumber'] . "&radd=" . $row['Raddress'] . "'>Edit</a></td>";
+            echo "<td><a href='update.php?cn=" . $row['CN No']."&date=".$row['date']. "&sadd=".$row['Saddress']."&price=".$row['price']."&weight=".$row['weight'] ."&pic=". $row['pieces']. "&sn=" . $row['Sname'] . "&sno=" . $row['Snumber'] . "&rn=" . $row['Rname'] . "&rno=" . $row['Rnumber'] . "&radd=" . $row['Raddress'] ."&name=".$row['Bookby']. "'>Edit</a></td>";
           
             echo"</tr>";
          }

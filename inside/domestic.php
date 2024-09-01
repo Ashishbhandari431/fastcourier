@@ -63,7 +63,7 @@
     </script>
 </head>
 <body>
-    <?php include 'nav.php' ?>
+    <?php include 'nav1.php' ?>
     <center>
         <form action="domesticinfo.php" method="post">
             <div class="col">
@@ -153,7 +153,10 @@
                         </div>
                     </td>
                     <td class="tabbed-text">Weight(in KG*) :<br><input class="z1" type="number" name="weight" value="1" required></td>
-                    <td class="tabbed-text">Pieces:<br><input class="z" id="z3" type="number" name="pieces" value="1" required></td>
+                    <td class="tabbed-text">Pieces:<br><input  id="z3" type="number" name="pieces" value="1" required></td>
+                    
+                    <td class="tabbed-text">Booked By:<br><input class=" form-control-plaintext small-input" id="z3" type="text" name="Bookby" value="Sagar Dahal" width="5%" required></td>
+                    
                 </table>
             </div>
             <center class="btn-submit-container">

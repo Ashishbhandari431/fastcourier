@@ -14,6 +14,7 @@
 
 <?php include 'menu-nav.php'  ?>
 
+
 <div id="demo" class="carousel slide" data-ride="carousel">
 
   <!-- Indicators -->
@@ -22,14 +23,16 @@
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
-  
+ 
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="image/c1.jpg" alt="Dhl" width="1100" height="500">
+
     </div>
     <div class="carousel-item">
       <img src="image/c2.jpg" alt="Fedex" width="1100" height="500">
+      <?php include 'globe.php'  ?>
     </div>
     <div class="carousel-item">
       <img src="image/c4.jpg" alt="Truck" width="1100" height="500">
@@ -44,6 +47,7 @@
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
+  
 </div>
 
 <section class="my-5 abt">
@@ -52,7 +56,7 @@
   </div>
   <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-6 col-md-6 col-12">
+  <div class="col-lg-6 col-md-6 col-12">
        <img src="image/c5.jpg" class="img-fluid aboutimg">
     </div>
     <div class="col-lg-6 col-md-6 col-12">

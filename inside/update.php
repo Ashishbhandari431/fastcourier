@@ -136,8 +136,11 @@ $typ = isset($_GET['typ']) ? $_GET['typ'] : '';
                             <input class="form-control-plaintext p1" type="text" value="<?php echo $_GET['price']; ?>" name="price" value="100">
                         </div>
                     </td>
-                    <td class="tabbed-text">Weight(in KG*) :<br><input class="z1" type="number" value="<?php echo $_GET['weight']; ?>" name="weight" value="1" required></td>
-                    <td class="tabbed-text">Pieces:<br><input class="z" id="z3" type="number" value="<?php echo $_GET['pic']; ?>" name="pieces" value="1" required></td>
+                    <td class="tabbed-text">Weight(in KG*) :<br><input class="z1" type="number" name="weight" value="<?php echo $_GET['weight']; ?>" required></td>
+                    <td class="tabbed-text">Pieces:<br><input  id="z3" type="number" name="pieces" value="<?php echo $_GET['pic']; ?>" required></td>
+                    
+                    <td class="tabbed-text">Booked By:<br><input class=" form-control-plaintext small-input" id="z3" type="text" name="Bookby" value="<?php echo $_GET['name'];?>"  required></td>
+                    
                 </table>
             </div>
             <center class="btn-submit-container">

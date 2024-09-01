@@ -81,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $total_valuation = $_GET['price'];
     $weight = $_GET['weight'];
     $pieces = $_GET['pieces'];
+    $name=$_GET['Bookby'];
 
     // Step 3: Construct SQL query
     $sql = "UPDATE domesticinfo SET 
