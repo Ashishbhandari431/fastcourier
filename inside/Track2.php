@@ -14,9 +14,13 @@ $searchBookingDate = "";
 // Check if form is submitted and process user input
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize user input to prevent SQL injection
-    $searchReceiverName = mysqli_real_escape_string($conn, $_POST['Rname']);
-    $searchSenderName = mysqli_real_escape_string($conn, $_POST['Sname']);
-    $searchBookingDate = mysqli_real_escape_string($conn, $_POST['Date']);
+    $searchReceiverName = isset($_POST['Rname']) ? mysqli_real_escape_string($conn, $_POST['Rname']) : '';
+    $searchSenderName = isset($_POST['Sname']) ? mysqli_real_escape_string($conn, $_POST['Sname']) : '';
+    $searchBookingDate = isset($_POST['Date']) ? mysqli_real_escape_string($conn, $_POST['Date']) : '';
+ $tracking_number = isset($_POST['tracking_number']) ? mysqli_real_escape_string($conn, $_POST['tracking_number']):'';
+
+    // // Query to fetch tracking details from listdomestic.php table
+    // $sql = "SELECT * FROM domesticinfo WHERE Track = '$tracking_number'";
 }
 
 // Construct the SQL query based on user input
@@ -32,6 +36,9 @@ if (!empty($searchSenderName)) {
 
 if (!empty($searchBookingDate)) {
     $sql .= " AND date LIKE '%$searchBookingDate%' ";
+}
+if (!empty($searchTrackNumber)) {
+    $sql .= " AND `CN No` LIKE '%$searchTrackNumber%' ";
 }
 $sql .= " ORDER BY `CN No` DESC ";
 // Execute the query
@@ -56,19 +63,14 @@ $result = mysqli_query($conn, $sql);
             padding: 2px;
             height: 70PX;
         }
-        #bill {
-            margin-left: 50px;
-        }
-        #checkbox {
-            text-align: center;
-            font-size: 80px;
-        }
-    
+    .table-bordered{
+        border: 3;
+    }
   </style>
   
 </head>
 <body>
-    <?php include 'nav.php'; ?>
+    <?php include 'nav1.php'; ?>
     <br>
     <form action="Search.php" method="post">
         <label>Receiver name</label>
@@ -85,25 +87,14 @@ $result = mysqli_query($conn, $sql);
     <a href="domestic.php">
         <button type="button" class="btn btn-primary">Add Docket</button>
     </a>
-    
-    &emsp14;   &emsp14;    &emsp14;    &emsp14;    &emsp14;
-    <a href="listDomestic.php">
-        <button type="button" class="btn btn-primary">Refresh</button>
-    </a>
-    <a href="#" onclick="displayinvoice()">
-        <button type="button" class="btn btn-primary"> Invoice</button>
-    </a>
-    <a href="#" onclick="displayBills()">
-        <button type="button" class="btn btn-primary">Bill</button>
-    </a>
     <br>
+
     <?php
     // Display search results in a table
     if (mysqli_num_rows($result) > 0) {
-        echo "<table class='table table-bordered' border='3'>";
+        echo "<table class='table table-bordered'>";
         echo "<thead class='thead-dark'>
                 <tr>
-                    <td>Select <input type='checkbox' id='selectAll' onclick='toggleSelectAll()'></td>
                     <th>Cn No</th>
                     <th>Booking Date</th>
                     <th>Sender name</th>
@@ -118,11 +109,9 @@ $result = mysqli_query($conn, $sql);
                     <th>Edit</th>
                 </tr>
               </thead>";
-              
         while ($row = mysqli_fetch_assoc($result)) {
             $color = ($row['CN No'] % 2 == 0) ? '#E7E7E7' : '#F7F7F7';
             echo "<tr style='background-color: $color;'>";
-            echo "<td><input type='checkbox' class='items' data-cn='" . $row['CN No'] . "'></td>";
             echo "<td><a href='qr.php?cn=" . $row['CN No'] . "'>FAST177 0" . $row['CN No'] . "</a></td>";
             echo "<td>" . $row['date'] . "</td>";
             echo "<td>" . $row['Sname'] . "</td>";
@@ -145,55 +134,5 @@ $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
     ?>
 
-<script>
-        function toggleSelectAll() {
-            const selectAllCheckbox = document.getElementById('selectAll');
-            const checkboxes = document.querySelectorAll('.items');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = selectAllCheckbox.checked;
-            });
-        }
-
-        function displaySelectedItems() {
-            const checkboxes = document.querySelectorAll('.items');
-            let selectedCNs = [];
-
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    selectedCNs.push(checkbox.getAttribute('data-cn'));
-                }
-            });
-
-            if (selectedCNs.length > 0) {
-                // Create query string from selected CN Nos
-                const queryString = `items=${selectedCNs.join(',')}`;
-                
-                // Redirect to invoice.php with the query string
-                window.location.href = 'invoice.php?' + queryString;
-            } else {
-                alert('No items selected!');
-            }
-        }
-        function displayBills() {
-            const checkboxes = document.querySelectorAll('.items');
-            let selectedCNs = [];
-
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    selectedCNs.push(checkbox.getAttribute('data-cn'));
-                }
-            });
-
-            if (selectedCNs.length > 0) {
-                // Create query string from selected CN Nos
-                const queryString = `items=${selectedCNs.join(',')}`;
-                
-                // Redirect to invoice.php with the query string
-                window.location.href = 'bills.php?' + queryString;
-            } else {
-                alert('No items selected!');
-            }
-        }
-    </script>
 </body>
 </html>

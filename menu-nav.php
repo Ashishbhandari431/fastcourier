@@ -30,6 +30,6 @@
   </div>
   <a class="nav-link active btn-sucess" href="login.php">Login<span class="sr-only">(current)</span></a>
   
-  <a class="nav-link active btn-sucess" href="signup.php">Signup<span class="sr-only">(current)</span></a>
+  <a class="nav-link active btn-sucess" href="contact.php">Signup<span class="sr-only">(current)</span></a>
       
 </nav>

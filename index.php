@@ -32,7 +32,6 @@
     </div>
     <div class="carousel-item">
       <img src="image/c2.jpg" alt="Fedex" width="1100" height="500">
-      <?php include 'globe.php'  ?>
     </div>
     <div class="carousel-item">
       <img src="image/c4.jpg" alt="Truck" width="1100" height="500">

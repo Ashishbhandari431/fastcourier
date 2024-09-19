@@ -24,9 +24,10 @@ $Raddress1=$_POST['Raddress1'];
 $price=$_POST['price'];
 $name=$_POST['Bookby'];
 $address="$Raddress,$Raddress1";
+$dest=$_POST['destination'];
 
-$query= "INSERT INTO domesticinfo (Sname,Snumber,Saddress,pactype,pieces,Rname,Rnumber,Raddress,date,weight,price,Bookby)
-values ('$Sname','$Snumber','$Saddress','$pactype','$pieces','$Rname','$Rnumber','$address','$date','$weight','$price','$name')";
+$query= "INSERT INTO domesticinfo (Sname,Snumber,Saddress,pactype,pieces,Rname,Rnumber,Raddress,date,weight,price,Bookby,Dest)
+values ('$Sname','$Snumber','$Saddress','$pactype','$pieces','$Rname','$Rnumber','$address','$date','$weight','$price','$name','$dest')";
 
 
 mysqli_query($con,$query);

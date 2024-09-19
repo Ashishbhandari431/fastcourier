@@ -158,14 +158,19 @@
                 Array.from(row.querySelectorAll('td, th')).map(cell => cell.innerText)
             );
 
-            // Add the title to the PDF
+            // Add the title to the PDF, centered
+            const title = "Fast Courier and Cargo Service";
+            const subtitle = "Birtamode, Jhapa";
+            const pageWidth = doc.internal.pageSize.width;
+
             doc.setFontSize(18);
-            doc.text("Fast courier and cargo service", 14, 20);
-            
+            doc.text(title, pageWidth / 2, 20, { align: 'center' });
+            doc.setFontSize(14);
+            doc.text(subtitle, pageWidth / 2, 30, { align: 'center' });
 
             // Create the table in the PDF
             doc.autoTable({
-                startY: 30, // Start below the title
+                startY: 40, // Start below the title and subtitle
                 head: [rows[0]], // table headers
                 body: rows.slice(1), // table rows
                 margin: { horizontal: 10 },

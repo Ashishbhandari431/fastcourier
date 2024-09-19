@@ -1,3 +1,5 @@
+
+
 <?php
 $conn = mysqli_connect("localhost", "root", "", "fastbtm");
 
@@ -10,32 +12,6 @@ if (!$conn) {
 $searchReceiverName = "";
 $searchSenderName = "";
 $searchBookingDate = "";
-
-// Check if form is submitted and process user input
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize user input to prevent SQL injection
-    $searchReceiverName = mysqli_real_escape_string($conn, $_POST['Rname']);
-    $searchSenderName = mysqli_real_escape_string($conn, $_POST['Sname']);
-    $searchBookingDate = mysqli_real_escape_string($conn, $_POST['Date']);
-}
-
-// Construct the SQL query based on user input
-$sql = "SELECT * FROM domesticinfo WHERE 1 ";
-
-if (!empty($searchReceiverName)) {
-    $sql .= " AND Rname LIKE '%$searchReceiverName%' ";
-}
-
-if (!empty($searchSenderName)) {
-    $sql .= " AND Sname LIKE '%$searchSenderName%' ";
-}
-
-if (!empty($searchBookingDate)) {
-    $sql .= " AND date LIKE '%$searchBookingDate%' ";
-}
-
-// Execute the query
-$result = mysqli_query($conn, $sql);
 
 ?>
 <!DOCTYPE html>
@@ -56,6 +32,9 @@ $result = mysqli_query($conn, $sql);
             padding: 2px;
             height: 70PX;
         }
+    .table-bordered{
+        border: 3;
+    }
   </style>
   
 </head>
@@ -76,11 +55,29 @@ $result = mysqli_query($conn, $sql);
     </form>
     <a href="domestic.php">
         <button type="button" class="btn btn-primary">Add Docket</button>
+    </a>&emsp14;
+    <a href="listDomestic.php">
+        <button type="button" class="btn btn-primary">Refresh</button>
     </a>
     <br>
 
-    <?php
-    // Display search results in a table
+<?php
+
+// Database connection
+$conn = mysqli_connect("localhost", "root", "", "fastbtm");
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get the tracking number from the form input
+    $tracking_number = mysqli_real_escape_string($conn, $_POST['tracking_number']);
+
+    // Query to fetch tracking details from listdomestic.php table
+    $sql = "SELECT * FROM domesticinfo WHERE `CN No` = '$tracking_number'";
+    $result = mysqli_query($conn, $sql);
+
     if (mysqli_num_rows($result) > 0) {
         echo "<table class='table table-bordered'>";
         echo "<thead class='thead-dark'>
@@ -116,13 +113,13 @@ $result = mysqli_query($conn, $sql);
             echo "</tr>";
         }
         echo "</table>";
-    } else {
-        echo "No results found";
+    }else {
+        echo "<p>No tracking information found for the given tracking number.</p>";
     }
+}
 
-    // Close the connection
-    mysqli_close($conn);
-    ?>
-
+// Close the database connection
+mysqli_close($conn);
+?>
 </body>
 </html>

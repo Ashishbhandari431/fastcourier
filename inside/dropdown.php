@@ -117,11 +117,10 @@ body {
                 </div>
             </div>
             <div class="nested-dropdown">
-                <button class="nested-dropbtn btn btn-secondary">International Courier</button>
-                <div class="nested-dropdown-content">
-                    <a href="http://online.apexparcel.com/docket/show_list">List Int. Shipments</a>
-                    <a href="http://online.apexparcel.com/docket/add">Create Int. Shipments</a>
-                </div>
+            <a href="https://apexfte.com/admin/shipment/list"><button class="nested-dropbtn btn btn-secondary">International Courier</button></a>
+                <!-- <div class="nested-dropdown-content">
+                    <a href="https://apexfte.com/admin/shipment/list">List Int. Shipments</a>
+                </div> -->
             </div>
         </div>
     </div>

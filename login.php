@@ -89,7 +89,7 @@ input{
                 <input type="checkbox">Remember me
                 
                 <button>LOGIN</button><br>
-            <a href="forget.php"> <h3>Forget your password?</h3></a>
+            <a href="contact.php"> <h3>Forget your password?</h3></a>
             <hrr>
           
         </form>
