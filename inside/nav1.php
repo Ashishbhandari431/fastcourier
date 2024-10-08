@@ -58,7 +58,7 @@
         <a class="nav-link active" href="dashboard.php">Track <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="Track1.php" method="POST">
+    <form class="form-inline my-2 my-lg-0" action="Track1.php" method="POST" >
   <input class="form-control mr-sm-2" type="search" name="tracking_number" placeholder="Tracking Number" aria-label="Search" required>
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>

@@ -44,7 +44,7 @@ $result = mysqli_query($conn, $sql);
     <title></title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -52,6 +52,12 @@ $result = mysqli_query($conn, $sql);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <style>
+    body {
+        width:100%;
+    }
+    .main{
+        width:100%;
+    }
      td {
             padding: 2px;
             height: 70PX;
@@ -70,6 +76,7 @@ $result = mysqli_query($conn, $sql);
 <body>
     <?php include 'nav.php'; ?>
     <br>
+    <div class="main">
     <form action="Search.php" method="post">
         <label>Receiver name</label>
         <input type="text" name="Rname" value="<?php echo htmlspecialchars($searchReceiverName); ?>">
@@ -100,7 +107,7 @@ $result = mysqli_query($conn, $sql);
     <?php
     // Display search results in a table
     if (mysqli_num_rows($result) > 0) {
-        echo "<table class='table table-bordered' border='3'>";
+        echo "<table class='table ' border='3'>";
         echo "<thead class='thead-dark'>
                 <tr>
                     <td>Select <input type='checkbox' id='selectAll' onclick='toggleSelectAll()'></td>
@@ -195,5 +202,6 @@ $result = mysqli_query($conn, $sql);
             }
         }
     </script>
+    </div>
 </body>
 </html>

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fast Courier Invoice</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         table {
             width: 100%;
@@ -20,10 +22,63 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        .icon-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .icon-container {
+            background-color: #3b3b3b;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .icon-container i {
+            color: white;
+            font-size: 24px;
+        }
+        
+        .icon-container:hover {
+            background-color: #444;
+        }
+        table {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        @media print {
+            .icon-buttons {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+    <div class="icon-buttons">
+            <div class="icon-container" id="printBtn">
+                <i class="fas fa-print"></i>
+            </div>
+        </div>
         <center>
         <h1>Fast Courier and cargo service</h1>
         <h2>Birtamode,jhapa</h2>
@@ -101,5 +156,10 @@
             </tbody>
         </table>
     </div>
+    <script>
+    document.getElementById('printBtn').addEventListener('click', () => {
+            window.print();
+        });
+        </script>
 </body>
 </html>

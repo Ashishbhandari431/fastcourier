@@ -7,7 +7,61 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+  <style>
+    body{
+      background-color: #f2f2f2;
+    }
+    .track{
+      padding-top: 3%;
+      text-align:center;
+    }
+     .carousel-item {
+            position: relative;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+        }
 
+        .carousel-caption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    img{
+      height:fit-content;
+    }
+    .search{
+      margin-left: 35%;
+      margin-top: 20%;
+      max-width: 50%;
+      height: 20px;
+      
+      /* background-color: green; */
+      
+    }
+    .btn-color {
+        background-color: #007bff; 
+        border: none; 
+    }
+
+    .btn-color:hover {
+        background-color: #0056b3; 
+    } 
+    .left{
+      position: absolute;
+        top: 0;
+        left: 100;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .time{
+      margin-left: 60%;
+      font-size:2px
+      
+    }
+        </style>
 </head>
 <body>
 
@@ -16,38 +70,37 @@
 
 
 <div id="demo" class="carousel slide" data-ride="carousel">
-
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
- 
-  <!-- The slideshow -->
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="image/cargo.jpg" alt="Dhl" width="1100" height="500">
+  <img src="image/cargo.jpg" alt="Dhl">
+  <div class="carousel-item active">
+            <div class="carousel-caption">
+               <?php include 'glove.php' ?>
+            </div>
+            <div class="time">
+              <?php include 'clock.php' ?>
+            </div>
+            
+            <div class="search">
+    <div class="input-group">
+      <form action="hi.php"method="post">
+      <div class="input-group mb-3">
+    <input class="form-control" type="search" name="tracking_number" placeholder="Enter Tracking Number" aria-label="Search">
+    <div class="input-group-append">
+        <input type="submit" value="Find Packet" class="btn btn-primary">
+    </div>
+</div>
 
+      </form>
     </div>
-    <div class="carousel-item">
-      <img src="image/courier.jpg" alt="Fedex" width="1100" height="500">
-    </div>
-    <div class="carousel-item">
-      <img src="image/c1.jpg" alt="DHL" width="1100" height="500">
-    </div>
+</div>
+
+        </div>
   </div>
   
   
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-  
+
 </div>
+
 
 <section class="my-5 abt">
 <div class="py-5" id="abt">
@@ -151,19 +204,11 @@
   <center><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3566.1496842512006!2d87.9893272752146!3d26.643689476808532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e5ba5fd0eb3ca5%3A0x801d5f61194f89b6!2sFast%20courier%20and%20cargo%20service!5e0!3m2!1sen!2snp!4v1716858023114!5m2!1sen!2snp" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </center>
 </section>
 <footer>
-  <p class="p-3 bg-dark text-white text-center"><a href="index.php">@Fastbtm</a> &emsp;&emsp;&emsp;023-534177&emsp;&emsp;9801376348
+  <p class="p-3 bg-dark text-white text-center"><a href="index.php">@Fastbtm</a> &emsp;&emsp;&emsp;<a href="tel:+977023534177"> +977 023-534177</a>&emsp;&emsp; <a href="tel:+9779801376348">9801376348</a>
   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="https://www.facebook.com/p/Fast-Courier-And-Cargo-Services-Birtamod-100063864826842/" ><img src="image/fbpng.jpg" alt="Fast courier" width="50px" height="50px"> Fast Courier </a>&emsp;&emsp;&emsp;
   <a href="https://www.facebook.com/sagar.dahal.33" ><img src="image/fbpng.jpg" alt="Sagar Dahal"width="50px" height="50px"> Sagar Dahal </a>
   </p>
 </footer>
 
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
